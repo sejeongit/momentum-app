@@ -1,8 +1,16 @@
+const API_KEY = "4e41d36fcf749bc6b806294a25f15ce4";
+
 function onGeoOk(position) {
 // 성공했을 때의 함수는 브라우저의 위치값을 인자로 받는다.
   const lat = position.coords.latitude; // 위치값.좌표값.위도
-  const lng = position.coords.longitude; // 위치값.좌표값.경도
-  console.log("You live in", lat, lng);
+  const lon = position.coords.longitude; // 위치값.좌표값.경도
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
+  fetch(url).then(response => response.json()).then(data => {
+    const weather = document.querySelector("#weather span:first-child");
+    const city = document.querySelector("#weather span:last-child");
+    weather.innerText = `${data.weather[0].main} / ${data.main.temp}`;
+    city.innerText = data.name;
+  }); // fetch : 실제로 url에 갈 필요 없이 JS가 대신 url을 부름. - promise : 당장 뭔가 일어나지 않고 시간이 좀 걸린 뒤에 일어남
 }
 
 function onGeoError() {
