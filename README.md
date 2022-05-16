@@ -1,5 +1,5 @@
 # momentum-app
-momentum app 제작
+Chrome momentum app 제작
 
 ### 구현 기능
 - 로그인 정보를 저장 후 브라우저를 킬 때 인삿말 띄우기
