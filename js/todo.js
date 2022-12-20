@@ -24,7 +24,7 @@ function paintToDo(newTodo){
   const span = document.createElement("span"); // span 생성 (존재하지만, HTML에 존재하지 않음)
   span.innerText = newTodo.text; // newToDoObj(객체)를 받으므로 그중 text만 집어넣기
   const button = document.createElement("button");
-  button.innerText = "❌";
+  button.innerText = "✕";
   button.addEventListener("click", deleteToDo);
   li.appendChild(span); // 생성한 li 안에 span을 자식으로 넣어줌
   li.appendChild(button);
@@ -59,8 +59,8 @@ if(savedToDos !== null) { // localStorage에 정보가 존재한다면
 }
 
 // filter() : 배열의 요소에 하나씩 실행해 false가 나오면 그 요소를 제외한 새로운 배열을 반환함. 기존의 배열은 그대로 존재. 배열의 요소들을 유지하려면 true를 반환해야함.
-const arr = ["pizza", "banana", "tomato"];
-function sexyFilter(food){ return food !== "banana"}
-console.log(arr.filter(sexyFilter));
+// const arr = ["pizza", "banana", "tomato"];
+// function sexyFilter(food){ return food !== "banana"}
+// console.log(arr.filter(sexyFilter));
 // (2) ['pizza', 'tomato']
 
